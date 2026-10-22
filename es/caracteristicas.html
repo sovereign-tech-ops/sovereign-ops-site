@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Características de SOVEREIGN OPS — 20 módulos, perfiles de vuelo, killswitch y checkpoint</title>
+<meta name="description" content="Lo que incluye SOVEREIGN OPS: 20 módulos encadenados de recon pentest (subfinder, httpx, naabu, katana, nuclei), perfiles de vuelo lite/padrão/profundo, killswitch de emergencia, checkpoint/retomada por fase, IA local y modo confidencial.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://sovereignops.com/es/caracteristicas.html">
+<link rel="alternate" hreflang="es" href="https://sovereignops.com/es/caracteristicas.html">
+<link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/caracteristicas.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SOVEREIGN OPS">
+<meta property="og:title" content="Características — 20 módulos + perfiles de vuelo (v3.2)">
+<meta property="og:description" content="Recon A-Z 100% local: enumeración, hosts vivos, puertos, crawl+JS, secretos, takeover, triaje de leads, IA local y killswitch.">
+<meta property="og:url" content="https://sovereignops.com/es/caracteristicas.html">
+<meta property="og:image" content="https://sovereignops.com/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0e17'/><text y='72' x='50' text-anchor='middle' font-size='64'>🛡️</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://sovereignops.com/es/" },
+        { "@type": "ListItem", "position": 2, "name": "Características", "item": "https://sovereignops.com/es/caracteristicas.html" }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "SOVEREIGN OPS",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Windows 10/11",
+      "softwareVersion": "3.2",
+      "featureList": "Perfiles de vuelo (lite/padrão/profundo); Killswitch 'parar tudo'; Checkpoint y retomada por fase; 20 módulos de recon; Triaje de leads IDOR/SSRF/SQLi/LFI/XSS; IA local Ollama; Modo confidencial; Diff diario; Multi-objetivo; Rate limit 1–20 req/s",
+      "offers": [
+        { "@type": "Offer", "name": "Starter", "price": "497.00", "priceCurrency": "BRL" },
+        { "@type": "Offer", "name": "Pro", "price": "1197.00", "priceCurrency": "BRL" }
+      ],
+      "author": { "@type": "Person", "name": "Felipe 'sovereign_tech'", "email": "contact.sovereigntech@gmail.com" },
+      "url": "https://sovereignops.com/es/caracteristicas.html"
+    }
+  ]
+}
+</script>
+
+<style>
+:root{--bg:#0a0e17;--card:#131d31;--card2:#0f1728;--line:#1e2b45;--txt:#f3f4f6;--mut:#8fa3bf;--cyan:#00f2fe;--cyan2:#4facfe;--grn:#10b981;--warn:#fbbf24}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:ui-monospace,'Cascadia Code',Consolas,'Segoe UI',monospace;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+section{padding:52px 0;border-top:1px solid var(--line)}
+h1{font-size:clamp(27px,4.6vw,40px);line-height:1.16;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--cyan2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:clamp(20px,3vw,27px);color:var(--cyan2);margin-bottom:18px}
+h3{color:var(--cyan)}
+p.lead{font-size:17px;max-width:760px}
+.mut{color:var(--mut)}small,.small{font-size:12.5px;color:var(--mut)}
+a{color:var(--cyan2)}
+code{background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:.92em}
+nav{display:flex;align-items:center;gap:14px;padding:15px 0;position:sticky;top:0;background:rgba(10,14,23,.92);backdrop-filter:blur(8px);z-index:9;border-bottom:1px solid var(--line)}
+.brand{font-weight:800;font-size:17px;text-decoration:none;color:var(--txt)}.brand span{color:var(--cyan)}
+.badge{border:1px solid var(--line);background:var(--card2);color:var(--grn);padding:4px 10px;border-radius:99px;font-size:11px;white-space:nowrap}
+nav .links{margin-left:auto;display:flex;gap:15px;font-size:13px;flex-wrap:wrap}
+nav .links a{color:var(--mut);text-decoration:none}
+.lang-sw{border:1px solid var(--line);background:var(--card2);color:var(--mut);padding:4px 10px;border-radius:8px;font-size:12px;text-decoration:none}
+.pagehead{padding:52px 0 30px;border:none;background:radial-gradient(1100px 420px at 50% -80px,rgba(0,242,254,.09),transparent)}
+.crumbs{font-size:12.5px;margin-bottom:16px}
+.crumbs a{color:var(--mut);text-decoration:none}
+.btn{display:inline-block;padding:14px 26px;border-radius:11px;font-weight:800;font-size:15px;text-decoration:none;border:none;cursor:pointer}
+.btn-a{background:linear-gradient(90deg,#10b981,#00c26e);color:#03130c;box-shadow:0 8px 28px rgba(16,185,129,.28)}
+.btn-b{background:linear-gradient(90deg,var(--cyan),var(--cyan2));color:#04121a;box-shadow:0 8px 28px rgba(0,242,254,.22)}
+.btn-c{border:1px solid var(--line);background:var(--card2);color:var(--txt)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px}
+.card b,.card strong{color:var(--grn)}
+.card p{font-size:13.5px;color:var(--mut);margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--line);padding:10px 13px;text-align:left;vertical-align:top}
+th{color:var(--cyan2);background:var(--card2)}
+tr:nth-child(even) td{background:var(--card2)}
+details{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+details p{margin-top:10px;color:var(--mut);font-size:14.5px}
+.note{background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:14px 18px;margin-top:18px;font-size:13px;color:var(--mut)}
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--mut);font-size:12.5px}
+footer a{color:var(--cyan2)}
+.f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin-bottom:24px}
+.ctas{margin-top:26px;display:flex;gap:13px;flex-wrap:wrap}
+@media(max-width:640px){nav .links{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <a class="brand" href="/es/">SOVEREIGN<span> OPS</span></a>
+  <span class="badge">WINDOWS 10/11 · V3.2</span>
+  <div class="links">
+    <a href="/es/">Inicio</a><a href="/es/comprar.html">Comprar</a><a href="/es/faq.html">FAQ</a><a href="/es/#contacto">Contacto</a>
+  </div>
+  <a class="lang-sw" href="/" hreflang="pt-BR">PT-BR</a>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <div class="crumbs"><a href="/es/">← Inicio</a> / Características</div>
+    <h1>Las 20 fases de tu recon — <em>con control total del operador.</em></h1>
+    <p class="lead" style="margin-top:14px">Cada módulo existe porque un dolor manual se repetía demasiado. v3.2 agrega lo que los frameworks de recon maduros dieron de bueno: <strong>perfiles de vuelo, killswitch y checkpoint/retomada</strong> — sin servidor, sin nube, sin fricción.</p>
+    <div class="ctas">
+      <a class="btn btn-a" href="/es/comprar.html">Comprar licencia</a>
+      <a class="btn btn-c" href="#v32">Ver lo nuevo en v3.2</a>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>Recopilación y mapeo</h2>
+    <div class="grid">
+      <div class="card"><strong>🧠 Inteligencia de mercado</strong><p>Descarga los scopes reales de HackerOne, Bugcrowd, Intigriti y YesWeHack + safe harbor (disclose.io) y ranquea los programas por bounty y superficie.</p></div>
+      <div class="card"><strong>🌐 Subdominios</strong><p>Enumeración completa del apex in-scope con <code>subfinder</code>, rate limit configurado.</p></div>
+      <div class="card"><strong>📡 Hosts vivos</strong><p>Status, título y tecnología de cada host (<code>httpx</code>) — solo lo que responde de verdad.</p></div>
+      <div class="card"><strong>🔌 Puertos</strong><p>Puertos abiertos por host (<code>naabu</code>), ritmo ajustado para no-denegar nada.</p></div>
+      <div class="card"><strong>🕷️ Crawl + JS</strong><p>Rastreo del sitio y recolección de JavaScripts con <code>katana</code> (js-crawl).</p></div>
+      <div class="card"><strong>🔑 Secretos</strong><p>Claves y tokens olvidados dentro de los .js (<code>jsluice</code>) — diez mejores, sin ruido de APIs públicas.</p></div>
+      <div class="card"><strong>🪝 Takeover</strong><p>Validación real de subdominio secuestrable (<code>Subdominator</code>).</p></div>
+      <div class="card"><strong>📜 APIs &amp; archivos</strong><p>URLs/api-like olvidadas en archivos históricos (<code>gau</code>) + crawl fresco.</p></div>
+      <div class="card"><strong>🧬 Fingerprint</strong><p>Stack, servidor y tecnología por host — dónde vale la pena mirar primero.</p></div>
+      <div class="card"><strong>☢️ Nuclei conservador</strong><p>Solo <code>misconfig/exposure</code>, severidad alta y crítica. Nada de explotación.</p></div>
+      <div class="card"><strong>📸 Screenshots</strong><p>Prueba visual de todos los hosts vivos (gowitness) para tu reporte.</p></div>
+      <div class="card"><strong>🔎 Dorks listos</strong><p>Google dorks guardados con links clicables para paneles, archivos y claves expuestas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Triaje y reporte (donde está el dinero)</h2>
+    <div class="grid">
+      <div class="card"><strong>🎯 Triaje de leads</strong><p>URLs candidatas separadas por clase: <strong>IDOR/BOLA, SSRF, SQLi, LFI, XSS</strong> — abres Burp solo donde hay señal.</p></div>
+      <div class="card"><strong>🆕 Diff diario</strong><p>Compara con el vuelo de ayer y resalta solo lo nuevo — bug fresco, bounty fresco.</p></div>
+      <div class="card"><strong>📄 Reportes</strong><p>TXT + HTML con tema (→ PDF en 1 clic), evidencias organizadas por fecha por objetivo.</p></div>
+      <div class="card"><strong>📋 Copiar para análisis</strong><p>Conjunto de reseumen pronto para llevar a tu análisis (con LLM local o con el apoyo humano de tu confianza).</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="v32">
+  <div class="wrap">
+    <h2>Lo nuevo en v3.2 — control de vuelo</h2>
+    <div class="grid">
+      <div class="card"><strong>🎛️ Perfiles de vuelo</strong><p><code>lite</code> (subs→vivos→leads), <code>padrão</code> (con takeover/crawl/reporte) y <code>profundo</code> (todo, incluido diff). Editables en <code>config.json</code> — crea tu propio perfil "mi-flujo".</p></div>
+      <div class="card"><strong>⏹ Killswitch</strong><p>Un botón detiene el vuelo y TODOS los procesos en curso (taskkill /T en Windows): urgencias, cambio de ventana, discrepancia de alcance — sin dejar procesos huérfanos.</p></div>
+      <div class="card"><strong>▶️ Checkpoint/retomada</strong><p>Cada fase completada queda registrada en código booming (VOO-state.json). Si cortas a media tarde, el botón "Retomar vuelo" retoma SOLO lo que falta — sin repetir trabajo, sin demoras.</p></div>
+      <div class="card"><strong>📦 Modo multi-objetivo</strong><p>Lote con lista curada: 1 dominio autorizado por línea, delay entre objetivos, log por fecha y bloqueo de hostname local.</p></div>
+    </div>
+    <div class="note">🧠 <strong>IA local opcional (Ollama):</strong> sugiere los 5 vectores más prometedores leyendo tus resultados — 100% en tu máquina, sin tokens, sin nube. Si tu cliente prohíbe IA de terceros, el modo 🔒 confidencial bloquea cualquier salida de datos por diseño.</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Del cuándo al listo</h2>
+    <div class="grid">
+      <div class="card"><strong>💻 Requisitos</strong><p>Windows 10/11. Las herramientas integradas (ProjectDiscovery) el propio console las localiza — si falta algo, te dice el comando de instalación.</p></div>
+      <div class="card"><strong>🔁 Actualiza</strong><p>Durante tu ventana de plan (6/12 meses) las actualizaciones entran con un archivo nuevo — la activación ya conocida.</p></div>
+      <div class="card"><strong>🔒 Datos de cliente</strong><p>Modo 🔒: bloquea cualquier envío externo. Con IA local (Ollama) el análisis completo puede quedar en el equipo del cliente.</p></div>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-a" href="/es/comprar.html">Ver precios</a>
+      <a class="btn btn-c" href="/es/recon-cloud-alternativa.html">¿Local vs recon cloud?</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><strong style="color:var(--txt)">SOVEREIGN OPS</strong><br><span class="small">Consola de reconocimiento A-Z 100% local para pentest autorizado y bug bounty.</span></div>
+      <div><strong style="color:var(--txt)">Sitio</strong><br><a href="/es/">Inicio</a> · <a href="/es/comprar.html">Comprar</a> · <a href="/es/recon-cloud-alternativa.html">Recon cloud vs local</a> · <a href="/es/guia-recon-pentest.html">Guía</a> · <a href="/es/faq.html">FAQ</a> · <a href="/licencia.html">Licencia</a></div>
+      <div><strong style="color:var(--txt)">Contacto</strong><br><a href="https://wa.me/5562982434116" target="_blank" rel="noopener">WhatsApp +55 62 98243-4116</a><br><a href="mailto:contact.sovereigntech@gmail.com">contact.sovereigntech@gmail.com</a></div>
+    </div>
+    <div class="small">© 2026 SOVEREIGN OPS · Uso exclusivo para pruebas autorizadas y fines defensivos.</div>
+  </div>
+</footer>
+
+</body>
+</html>

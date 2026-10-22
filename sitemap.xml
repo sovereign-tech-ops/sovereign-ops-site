@@ -13,7 +13,7 @@
     <image:image>
       <image:loc>https://sovereignops.com/og-cover.png</image:loc>
       <image:title>SOVEREIGN OPS — Recon A-Z 100% local</image:title>
-      <image:caption>Console de reconocimiento para pentest autorizado: 20 módulos, triaje IDOR/SSRF/SQLi, cero nube.</image:caption>
+      <image:caption>Consola de reconocimiento para pentest autorizado: 20 módulos, triaje IDOR/SSRF/SQLi, cero nube.</image:caption>
     </image:image>
   </url>
   <url>
@@ -24,5 +24,59 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://sovereignops.com/es/"/>
     <xhtml:link rel="alternate" hreflang="pt-BR" href="https://sovereignops.com/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/"/>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/es/comprar.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sovereignops.com/es/comprar.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://sovereignops.com/comprar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/comprar.html"/>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/comprar.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sovereignops.com/es/comprar.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://sovereignops.com/comprar.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/comprar.html"/>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/es/caracteristicas.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/es/recon-cloud-alternativa.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/es/guia-recon-pentest.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/es/faq.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/es/contacto.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/licencia.html</loc>
+    <lastmod>2026-10-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>

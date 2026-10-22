@@ -1,0 +1,20 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ],
+  "redirects": [
+    { "source": "/ferramentas.html", "destination": "/#modulos", "permanent": true },
+    { "source": "/como-funciona.html", "destination": "/#modulos", "permanent": true },
+    { "source": "/compliance.html", "destination": "/#compliance", "permanent": true },
+    { "source": "/planos.html", "destination": "/comprar.html", "permanent": true },
+    { "source": "/contato.html", "destination": "/#contato", "permanent": true },
+    { "source": "/era-ia.html", "destination": "/", "permanent": true }
+  ]
+}

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ — Preguntas frecuentes sobre SOVEREIGN OPS (recon pentest 100% local)</title>
+<meta name="description" content="Respuestas sobre legalidad, rate limit, escaneos grandes, IA local, modo confidencial, licencias, garantía, requisitos de Windows y soporte de SOVEREIGN OPS, consola de recon pentest 100% local.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://sovereignops.com/es/faq.html">
+<link rel="alternate" hreflang="es" href="https://sovereignops.com/es/faq.html">
+<link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/faq.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="FAQ — SOVEREIGN OPS">
+<meta property="og:description" content="Legalidad, escaneos grandes, IA local, confidencialidad, licencias y garantía — en blanco y negro.">
+<meta property="og:url" content="https://sovereignops.com/es/faq.html">
+<meta property="og:image" content="https://sovereignops.com/og-cover.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0e17'/><text y='72' x='50' text-anchor='middle' font-size='64'>🛡️</text></svg>">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://sovereignops.com/es/" },
+        { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://sovereignops.com/es/faq.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿SOVEREIGN OPS es legal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Ejecuta reconocimiento solo en objetivos autorizados: programas de bug bounty publicados (HackerOne, Bugcrowd, Intigriti, YesWeHack) u objetivos con término de autorización firmado. Exige confirmar la autorización para objetivo manual y no opera fuera del alcance definido." } },
+        { "@type": "Question", "name": "¿Es una herramienta para hackear?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Es una herramienta de recon pentest: recopila y organiza información del alcance autorizado. La explotación de vulnerabilidades sigue siendo manual (Burp Suite) — la herramienta entrega el mapa, no el ataque." } },
+        { "@type": "Question", "name": "¿Soporta escaneos grandes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, por diseño: cada módulo hace streaming de resultados a disco (memoria constante incluso con millones de líneas), el rate limit se ajusta por fase (1–20 req/s) y la ejecución es incremental por fecha, con checkpoint/retomada si cortas el vuelo." } },
+        { "@type": "Question", "name": "¿Puedo usar si mi cliente prohíbe IA de terceros?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. El modo confidencial bloquea cualquier salida de datos a servicios externos y la IA integrada es opcional, corriendo 100% local vía Ollama en tu máquina." } },
+        { "@type": "Question", "name": "¿Qué incluye la versión 3.2?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Perfiles de vuelo editables (lite/padrão/profundo + perfiles propios en config.json), killswitch de emergencia que detiene todos los procesos, y checkpoint/retomada fase por fase — además del modo multi-objetivo con lista curada." } },
+        { "@type": "Question", "name": "¿Necesito instalar muchas herramientas?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. La consola localiza las herramientas (subfinder, httpx, naabu, katana, nuclei, etc.) y, si falta alguna, te muestra el comando de instalación." } },
+        { "@type": "Question", "name": "¿Funciona en Linux o macOS?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La venta inicial es para Windows 10/11 (es el entorno de la mayoría de los hunters LATAM/ES). Si necesitas otro SO, habla con el autor por WhatsApp." } },
+        { "@type": "Question", "name": "¿Cómo recibo mi licencia y cuál es la garantía?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pago online (tarjeta o método local según tu país), liberación el mismo día por WhatsApp. Garantía de 7 días: si no encaja en tu flujo, devolución integral." } },
+        { "@type": "Question", "name": "¿Puedo usar la licencia en 2 equipos?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La licencia es individual e intransferible y habilita una persona. Puedes moverla entre tus equipos propios si no excede el uso de una persona; para equipos hay plan custom." } },
+        { "@type": "Question", "name": "¿Hay plan para equipos / MSSP?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí — plan custom con licencias múltiples y reporte white-label (tu marca en los reportes de cliente). Escríbenos por WhatsApp o e-mail." } },
+        { "@type": "Question", "name": "¿El producto envía datos a la nube?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Las consultas de red del recon van directas a los objetivos autorizados desde tu IP; los resultados, reportes y evidencias quedan en tu disco. La única opción de notificación externa es opcional (alerta Telegram, que tú configuras)." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+:root{--bg:#0a0e17;--card:#131d31;--card2:#0f1728;--line:#1e2b45;--txt:#f3f4f6;--mut:#8fa3bf;--cyan:#00f2fe;--cyan2:#4facfe;--grn:#10b981;--warn:#fbbf24}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:ui-monospace,'Cascadia Code',Consolas,'Segoe UI',monospace;line-height:1.65}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+section{padding:44px 0;border-top:1px solid var(--line)}
+h1{font-size:clamp(26px,4.4vw,38px);letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--cyan2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:clamp(19px,2.8vw,24px);color:var(--cyan2);margin:34px 0 14px}
+p{font-size:15px;color:var(--mut);margin:10px 0}
+p b,p strong{color:var(--txt)}
+a{color:var(--cyan2)}
+nav{display:flex;align-items:center;gap:14px;padding:15px 0;position:sticky;top:0;background:rgba(10,14,23,.92);backdrop-filter:blur(8px);z-index:9;border-bottom:1px solid var(--line)}
+.brand{font-weight:800;font-size:17px;text-decoration:none;color:var(--txt)}.brand span{color:var(--cyan)}
+.badge{border:1px solid var(--line);background:var(--card2);color:var(--grn);padding:4px 10px;border-radius:99px;font-size:11px;white-space:nowrap}
+.links{margin-left:auto;display:flex;gap:15px;font-size:13px}
+.links a{color:var(--mut);text-decoration:none}
+.lang-sw{border:1px solid var(--line);background:var(--card2);color:var(--mut);padding:4px 10px;border-radius:8px;font-size:12px;text-decoration:none}
+.crumbs{font-size:12.5px;margin:22px 0 6px}
+.crumbs a{color:var(--mut);text-decoration:none}
+details{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:700;color:var(--txt)}
+summary::marker{color:var(--cyan)}
+details p{margin-top:10px;color:var(--mut);font-size:14.5px}
+.btn{display:inline-block;padding:13px 24px;border-radius:11px;font-weight:800;font-size:15px;text-decoration:none;border:none;cursor:pointer;margin-top:14px}
+.btn-a{background:linear-gradient(90deg,#10b981,#00c26e);color:#03130c;box-shadow:0 8px 28px rgba(16,185,129,.28)}
+.btn-c{border:1px solid var(--line);background:var(--card2);color:var(--txt)}
+footer{padding:34px 0 44px;border-top:1px solid var(--line);color:var(--mut);font-size:12.5px}
+footer a{color:var(--cyan2)}
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <a class="brand" href="/es/">SOVEREIGN<span> OPS</span></a>
+  <span class="badge">💬 EN BLANCO Y NEGRO</span>
+  <div class="links"><a href="/es/">Inicio</a><a href="/es/comprar.html">Comprar</a><a href="/es/#contacto">Contacto</a></div>
+  <a class="lang-sw" href="/" hreflang="pt-BR">PT-BR</a>
+</nav>
+
+<div class="wrap">
+  <div class="crumbs"><a href="/es/">← Inicio</a> / FAQ</div>
+  <h1>Preguntas frecuentes — <em>respuestas sin letra chiquita.</em></h1>
+
+<section>
+  <h2>Producto & legalidad</h2>
+  <details><summary>¿SOVEREIGN OPS es legal?</summary><p>Sí. Ejecuta reconocimiento solo en objetivos autorizados: programas de bug bounty publicados (HackerOne, Bugcrowd, Intigriti, YesWeHack) u objetivos con término de autorización firmado. Exige confirmar la autorización para objetivo manual y no opera fuera del alcance definido.</p></details>
+  <details><summary>¿Es una herramienta para hackear?</summary><p>No. Es una herramienta de recon pentest: recopila y organiza información del alcance autorizado. La explotación sigue siendo manual (Burp Suite) — la herramienta entrega el mapa, no el ataque.</p></details>
+  <details><summary>¿El producto envía datos a la nube?</summary><p>No. Las consultas de red del recon van directas a los objetivos autorizados desde tu IP; resultados, reportes y evidencias quedan en tu disco. La única notificación externa es opcional (alerta Telegram, que tú configuras).</p></details>
+</section>
+
+<section>
+  <h2>Capacidad técnica</h2>
+  <details><summary>¿Soporta escaneos grandes?</summary><p>Sí, por diseño: streaming de resultados a disco (memoria constante incluso con millones de líneas), rate limit por fase (1–20 req/s), ejecución incremental por fecha y checkpoint/retomada si cortas el vuelo.</p></details>
+  <details><summary>¿Qué trae la versión 3.2?</summary><p>Perfiles de vuelo editables (lite/padrão/profundo + perfiles propios en config.json), killswitch de emergencia que detiene todos los procesos, checkpoint/retomada fase por fase, y modo multi-objetivo con lista curada.</p></details>
+  <details><summary>¿Necesito instalar muchas herramientas?</summary><p>No. La consola localiza las herramientas (subfinder, httpx, naabu, katana, nuclei, etc.) y, si falta alguna, te muestra el comando de instalación.</p></details>
+  <details><summary>¿Puedo usar si mi cliente prohíbe IA de terceros?</summary><p>Sí. El modo confidencial bloquea cualquier salida de datos y la IA integrada es opcional, 100% local vía Ollama en tu máquina.</p></details>
+  <details><summary>¿Funciona en Linux o macOS?</summary><p>La venta inicial es para Windows 10/11. Si necesitas otro SO, habla con el autor por WhatsApp.</p></details>
+</section>
+
+<section>
+  <h2>Compra & licencia</h2>
+  <details><summary>¿Cómo recibo mi licencia y cuál es la garantía?</summary><p>Pago online (tarjeta o método local según tu país), liberación el mismo día por WhatsApp. Garantía de 7 días: si no encaja en tu flujo, devolución integral.</p></details>
+  <details><summary>¿Puedo usar la licencia en 2 equipos?</summary><p>La licencia es individual e intransferible y habilita una persona. Puedes moverla entre tus equipos propios si no excede el uso de una persona; para equipos hay plan custom.</p></details>
+  <details><summary>¿Hay plan para equipos / MSSP?</summary><p>Sí — plan custom con licencias múltiples y reporte white-label (tu marca en los reportes de cliente). Escríbenos por WhatsApp o e-mail.</p></details>
+  <details><summary>¿Las actualizaciones caducan mi licencia?</summary><p>No. Las actualizaciones (6/12 meses según plan) son el período en que recibes versiones nuevas sin costo — después sigues usando tu última versión para siempre.</p></details>
+</section>
+
+<section>
+  <p><a class="btn btn-a" href="/es/comprar.html">Ver licencias</a> <a class="btn btn-c" href="/es/#contacto">Hablame por WhatsApp</a></p>
+</section>
+</div>
+
+<footer>
+  <div class="wrap">© 2026 SOVEREIGN OPS · Uso exclusivo en objetivos autorizados · <a href="/es/">Inicio</a> · <a href="/es/caracteristicas.html">Características</a> · <a href="/es/comprar.html">Comprar</a> · <a href="/licencia.html">Licencia</a></div>
+</footer>
+
+</body>
+</html>
