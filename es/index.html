@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>SOVEREIGN OPS — Herramienta de recon pentest A-Z, 100% local | Bug bounty</title>
+<meta name="description" content="Console de reconocimiento A-Z 100% local para pentest autorizado y bug bounty: 20 módulos encadenados (subfinder, httpx, naabu, katana, nuclei), triaje de leads IDOR/SSRF/SQLi/LFI/XSS y cero nube. Alternativa local al recon cloud.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<link rel="canonical" href="https://sovereignops.com/es/">
+<link rel="alternate" hreflang="es" href="https://sovereignops.com/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://sovereignops.com/">
+<link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="SOVEREIGN OPS">
+<meta property="og:title" content="SOVEREIGN OPS — Recon A-Z 100% local | Pentest autorizado & bug bounty">
+<meta property="og:description" content="20 módulos encadenados, triaje de leads por clase de fallo (IDOR, SSRF, SQLi), IA local vía Ollama y compliance nativo. Cero datos en la nube.">
+<meta property="og:url" content="https://sovereignops.com/es/">
+<meta property="og:image" content="https://sovereignops.com/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_LA">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SOVEREIGN OPS — Recon A-Z 100% local">
+<meta name="twitter:description" content="Console de reconocimiento para pentest autorizado: 20 módulos, triaje IDOR/SSRF/SQLi, cero nube.">
+<meta name="twitter:image" content="https://sovereignops.com/og-cover.png">
+
+<meta name="copyright" content="© 2026 SOVEREIGN OPS — Todos los derechos reservados. Reproducción, clonación y reventa prohibidas. Ver /licencia.html">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230a0e17'/><text y='72' x='50' text-anchor='middle' font-size='64'>🛡️</text></svg>">
+
+<!-- ====== SCHEMA.ORG JSON-LD (SEO + GEO/AEO) ====== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "SOVEREIGN OPS",
+      "applicationCategory": "SecurityApplication",
+      "operatingSystem": "Windows 10/11",
+      "softwareVersion": "3",
+      "description": "Console de reconocimiento (herramienta de recon pentest) A-Z 100% local para pentest autorizado y bug bounty. Automatización de reconocimiento con 20 módulos encadenados, triaje de leads por clase de fallo y cero envío de datos a la nube.",
+      "featureList": "Recon A-Z bug bounty; 20 módulos encadenados (subfinder, httpx, naabu, katana, jsluice, Subdominator, gau, nuclei, gowitness); Triaje de leads IDOR/SSRF/SQLi/LFI/XSS; Inteligencia de mercado HackerOne/Bugcrowd/Intigriti/YesWeHack; IA local vía Ollama opcional; Modo confidencial nativo; Reporte auditable; Rate limit ajustable",
+      "offers": [
+        { "@type": "Offer", "name": "Starter", "price": "497.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock" },
+        { "@type": "Offer", "name": "Pro", "price": "1197.00", "priceCurrency": "BRL", "availability": "https://schema.org/InStock" }
+      ],
+      "author": { "@type": "Person", "name": "Felipe 'sovereign_tech'", "email": "contact.sovereigntech@gmail.com", "nationality": "BR" },
+      "license": "https://sovereignops.com/licencia.html",
+      "url": "https://sovereignops.com/es/"
+    },
+    {
+      "@type": "Product",
+      "name": "SOVEREIGN OPS",
+      "description": "Alternativa local al recon cloud: console de automatización de reconocimiento para pentest autorizado, 100% offline con datos de cliente, compliance nativo LGPD.",
+      "brand": { "@type": "Brand", "name": "SOVEREIGN OPS" },
+      "offers": [
+        { "@type": "Offer", "name": "Licencia Starter", "description": "Licencia vitalicia + 6 meses de actualizaciones", "price": "497.00", "priceCurrency": "BRL" },
+        { "@type": "Offer", "name": "Licencia Pro", "description": "Licencia vitalicia + 12 meses de actualizaciones + IA local Ollama + soporte prioritario + plantillas LGPD", "price": "1197.00", "priceCurrency": "BRL" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "¿SOVEREIGN OPS es legal?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí. Ejecuta reconocimiento solo en objetivos autorizados: programas de bug bounty publicados (HackerOne, Bugcrowd, Intigriti, YesWeHack) u objetivos con término de autorización firmado. Exige confirmar la autorización para objetivo manual y no opera fuera del alcance definido — en línea con hacking ético y normas de protección de datos como la LGPD." } },
+        { "@type": "Question", "name": "¿Es una herramienta para hackear?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Es una herramienta de recon pentest: recopila y organiza información del alcance autorizado. La explotación de vulnerabilidades sigue siendo manual (Burp Suite), hecha por ti — la herramienta entrega el mapa, no el ataque." } },
+        { "@type": "Question", "name": "¿Soporta escaneos grandes?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí, por diseño: cada módulo hace streaming de resultados a disco (memoria constante incluso con millones de líneas), el rate limit está ajustado por fase (1–20 req/s) y la ejecución es incremental por fecha — escaneos grandes se hacen por etapas resumibles, no en maratones." } },
+        { "@type": "Question", "name": "¿Puedo usar si mi cliente prohíbe IA de terceros?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Sí — fue diseñado exactamente para eso. El modo confidencial bloquea cualquier salida de datos a servicios externos y la IA integrada es opcional, corriendo 100% local vía Ollama en tu máquina." } },
+        { "@type": "Question", "name": "¿Cómo recibo mi licencia y cuál es la garantía?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Pago vía Hotmart con liberación el mismo día por WhatsApp. Garantía de 7 días: si no encaja en tu flujo, devolución integral." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+:root{--bg:#0a0e17;--card:#131d31;--card2:#0f1728;--line:#1e2b45;--txt:#f3f4f6;--mut:#8fa3bf;--cyan:#00f2fe;--cyan2:#4facfe;--grn:#10b981;--warn:#fbbf24}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:ui-monospace,'Cascadia Code',Consolas,'Segoe UI',monospace;line-height:1.65;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h1{font-size:clamp(28px,5.2vw,44px);line-height:1.16;letter-spacing:-.02em}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--cyan),var(--cyan2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+h2{font-size:clamp(20px,3vw,27px);color:var(--cyan2);margin-bottom:18px}
+h3{color:var(--cyan)}
+p.lead{font-size:17px;max-width:760px}
+.mut{color:var(--mut)}small,.small{font-size:12.5px;color:var(--mut)}
+a{color:var(--cyan2)}
+code{background:var(--card2);border:1px solid var(--line);border-radius:6px;padding:2px 7px;font-size:.92em}
+nav{display:flex;align-items:center;gap:14px;padding:15px 0;position:sticky;top:0;background:rgba(10,14,23,.92);backdrop-filter:blur(8px);z-index:9;border-bottom:1px solid var(--line)}
+.brand{font-weight:800;font-size:17px}.brand span{color:var(--cyan)}
+.badge{border:1px solid var(--line);background:var(--card2);color:var(--grn);padding:4px 10px;border-radius:99px;font-size:11px;white-space:nowrap}
+nav .links{margin-left:auto;display:flex;gap:15px;font-size:13px;flex-wrap:wrap}
+nav .links a{color:var(--mut);text-decoration:none}
+nav .links a:hover{color:var(--cyan)}
+.hero{padding:64px 0 48px;border:none;background:radial-gradient(1100px 420px at 50% -80px,rgba(0,242,254,.09),transparent)}
+.hero .badges{display:flex;gap:9px;flex-wrap:wrap;margin:20px 0}
+.hero .badges span{border:1px solid var(--line);background:var(--card2);color:var(--mut);padding:5px 12px;border-radius:99px;font-size:12px}
+.ctas{margin-top:26px;display:flex;gap:13px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 26px;border-radius:11px;font-weight:800;font-size:15px;text-decoration:none;border:none;cursor:pointer}
+.btn-a{background:linear-gradient(90deg,#10b981,#00c26e);color:#03130c;box-shadow:0 8px 28px rgba(16,185,129,.28)}
+.btn-b{background:linear-gradient(90deg,var(--cyan),var(--cyan2));color:#04121a;box-shadow:0 8px 28px rgba(0,242,254,.22)}
+.btn-c{border:1px solid var(--line);background:var(--card2);color:var(--txt)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:13px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px}
+.card b,.card strong{color:var(--grn)}
+.card p{font-size:13.5px;color:var(--mut);margin-top:4px}
+.step{display:flex;gap:14px;margin:14px 0}
+.num{min-width:35px;height:35px;border-radius:50%;background:var(--card);border:1px solid var(--line);color:var(--cyan);display:flex;align-items:center;justify-content:center;font-weight:800}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{border:1px solid var(--line);padding:10px 13px;text-align:left;vertical-align:top}
+th{color:var(--cyan2);background:var(--card2)}
+tr:nth-child(even) td{background:var(--card2)}
+.price{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:26px;display:flex;flex-direction:column;gap:11px}
+.price .valor{font-size:36px;font-weight:800;color:#fff}
+.price .valor small{font-size:14px;color:var(--mut);font-weight:400}
+.price ul{list-style:none;display:grid;gap:8px;font-size:14px}
+.price li::before{content:"✓ ";color:var(--grn);font-weight:800}
+.destaque{border-color:var(--grn);box-shadow:0 0 0 1px rgba(16,185,129,.35),0 18px 50px -18px rgba(16,185,129,.32)}
+.tagbest{color:var(--warn);font-size:11px;font-weight:800}
+details{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px 18px;margin:10px 0}
+summary{cursor:pointer;font-weight:700}
+summary::marker{color:var(--cyan)}
+details p{margin-top:10px;color:var(--mut);font-size:14.5px}
+.autor{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.avatar{width:74px;height:74px;border-radius:16px;background:linear-gradient(135deg,var(--card2),var(--card));border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:34px}
+footer{padding:40px 0;border-top:1px solid var(--line);color:var(--mut);font-size:12.5px}
+footer a{color:var(--cyan2)}
+.f-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:22px;margin-bottom:24px}
+.aviso{background:var(--card2);border:1px solid var(--line);border-left:3px solid var(--warn);border-radius:10px;padding:14px 18px;margin-top:18px;font-size:13px;color:var(--mut)}
+.lang-sw{border:1px solid var(--line);background:var(--card2);color:var(--mut);padding:4px 10px;border-radius:8px;font-size:12px;text-decoration:none}
+@media(max-width:640px){nav .links{display:none}.autor{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav class="wrap">
+  <div class="brand">SOVEREIGN<span> OPS</span></div>
+  <span class="badge">🔒 100% LOCAL · CERO NUBE</span>
+  <div class="links">
+    <a href="#modulos">Módulos</a><a href="#escala">Escala</a><a href="#precios">Precios</a><a href="#compliance">Compliance</a><a href="#autor">Autor</a><a href="#faq">FAQ</a><a href="#contacto">Contacto</a>
+  </div>
+  <a class="lang-sw" href="/" hreflang="pt-BR">PT-BR</a>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Herramienta de recon pentest A-Z en minutos — <em>sin enviar un solo byte a la nube.</em></h1>
+    <p class="lead" style="margin-top:16px">
+      <strong>SOVEREIGN OPS</strong> es el console de reconocimiento 100% local para <strong>pentest autorizado y bug bounty</strong>:
+      20 módulos encadenados, triaje de leads por clase de fallo (IDOR, SSRF, SQLi, LFI, XSS) y reporte listo para auditoría.
+      La <strong>alternativa local al recon cloud</strong> — tus datos nunca salen de tu máquina.
+    </p>
+    <div class="badges">
+      <span>🧠 20 módulos encadenados</span><span>🚫 Cero nube</span><span>🎯 Alcance bloqueado</span><span>📈 Soporta escaneos grandes</span><span>⚖️ Compliance nativo</span>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-a" href="https://wa.me/5562982434116?text=%C2%A1Hola!%20Quiero%20una%20demo%20de%20SOVEREIGN%20OPS." target="_blank" rel="noopener">▶️ Ver demo por WhatsApp</a>
+      <a class="btn btn-b" href="#precios">Comprar licencia</a>
+      <a class="btn btn-c" href="#modulos">Ver los 20 módulos</a>
+    </div>
+    <p class="small" style="margin-top:16px">Uso restringido a objetivos autorizados (bug bounty / contrato firmado) · Términos de autorización y Declaración de exclusión de datos incluidos.</p>
+  </div>
+</header>
+
+<section id="modulos">
+  <div class="wrap">
+    <h2>20 módulos encadenados — recon A-Z con rate limit</h2>
+    <p class="mut" style="margin-bottom:20px">Automatización de reconocimiento local con ProjectDiscovery y complementos: <code>subfinder</code>, <code>httpx</code>, <code>naabu</code>, <code>katana</code>, <code>jsluice</code>, <code>Subdominator</code>, <code>gau</code>, <code>nuclei</code>, <code>gowitness</code>.</p>
+    <div class="grid">
+      <div class="card"><strong>🧠 Inteligencia de mercado</strong><p>Descarga automática de los scopes in-scope reales de HackerOne, Bugcrowd, Intigriti y YesWeHack + safe harbor (disclose.io) y ranqueo de programas.</p></div>
+      <div class="card"><strong>🌐 Subdominios</strong><p>Enumeración completa del apex in-scope (subfinder).</p></div>
+      <div class="card"><strong>📡 Hosts vivos</strong><p>Status, título y tecnología de cada host (httpx).</p></div>
+      <div class="card"><strong>🔌 Puertos</strong><p>Puertos abiertos por host (naabu).</p></div>
+      <div class="card"><strong>🕷️ Crawl + JS</strong><p>Rastrea el sitio y recoge los JavaScripts (katana, js-crawl).</p></div>
+      <div class="card"><strong>🔑 Secretos</strong><p>Claves y tokens olvidados dentro de los .js (jsluice).</p></div>
+      <div class="card"><strong>🪝 Takeover</strong><p>Validación real de subdominio secuestrado (Subdominator).</p></div>
+      <div class="card"><strong>📜 APIs &amp; archivos</strong><p>URLs olvidadas en históricos (gau).</p></div>
+      <div class="card"><strong>🧬 Fingerprint</strong><p>Stack, servidor y tecnología por host.</p></div>
+      <div class="card"><strong>☢️ Nuclei conservador</strong><p>Solo configuración expuesta, severidad alta y crítica.</p></div>
+      <div class="card"><strong>🎯 Triaje de leads</strong><p>URLs candidatas separadas por clase: <strong>IDOR/BOLA, SSRF, SQLi, LFI, XSS</strong>.</p></div>
+      <div class="card"><strong>🆕 Diff diario</strong><p>Compara con el vuelo de ayer y remarca solo lo nuevo.</p></div>
+      <div class="card"><strong>🔎 Dorks listos</strong><p>Google dorks guardados para archivos, paneles y claves expuestos.</p></div>
+      <div class="card"><strong>📥 Inventario Trickest</strong><p>Recon histórico del programa para compararlo con tu recon fresco.</p></div>
+      <div class="card"><strong>🧠 IA local (opcional)</strong><p>Vía Ollama en tu máquina: sugiere los 5 vectores más prometedores. Sin costos de tokens, sin nube.</p></div>
+      <div class="card"><strong>📸 Screenshots</strong><p>Captura de todos los hosts vivos (gowitness).</p></div>
+      <div class="card"><strong>🔒 Modo Confidencial</strong><p>Objetivo de cliente bloqueado: nada sale a servicios externos.</p></div>
+      <div class="card"><strong>⏰ Programación diaria</strong><p>Vuelo automático en Windows + alerta por Telegram.</p></div>
+      <div class="card"><strong>📄 Reportes</strong><p>TXT + HTML formateado (→ PDF en 1 clic), evidencias ordenadas por fecha.</p></div>
+      <div class="card"><strong>🚀 VUELO COMPLETO</strong><p>Pipeline entero en 1 botón, con rate limit ajustable de 1–20 req/s.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="escala">
+  <div class="wrap">
+    <h2>¿Soporta escaneos grandes? Sí — por diseño, no por promesa</h2>
+    <div class="grid">
+      <div class="card"><strong>💾 Streaming a disco</strong><p>Cada módulo escribe resultados línea a línea: memoria constante incluso con millones de URLs. Mapa de caja grande en equipo modesto.</p></div>
+      <div class="card"><strong>🎛️ Rate limit por fase</strong><p>La automatización nunca se convierte en DoS accidental: 1–20 req/s y control visible.</p></div>
+      <div class="card"><strong>🧩 Ejecución incremental</strong><p>Etapas encadenadas o módulo por módulo, con evidencia y resumen por fecha — retomar es trivial.</p></div>
+      <div class="card"><strong>🗓️ Diff diary</strong><p>Escaneos massivos se hacen por salto diario: lo nuevo hoy contra la línea base de ayer.</p></div>
+      <div class="card"><strong>🛡️ Alcance bloqueado</strong><p>Nada roda fora do objetivo autorizado — a escala permanece do lado honesto.</p></div>
+      <div class="card"><strong>🖥️ Roda em máquina modesta</strong><p>Windows 10/11, sin cloude obrigatória: su propio hardware, su propio ritmo.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Cómo funciona en 3 pasos</h2>
+    <div class="step"><div class="num">1</div><div><strong>Elige el objetivo autorizado</strong> en la lista ranqueada o escribe el dominio del contrato — con confirmación de autorización obligatoria. Fuera del alcance, no corre.</div></div>
+    <div class="step"><div class="num">2</div><div><strong>Pulsa VUELO COMPLETO</strong> y mira el log rodar en tiempo real: subdominios → hosts → crawl → takeover → secretos → leads → nuclei conservador.</div></div>
+    <div class="step"><div class="num">3</div><div><strong>Valida los leads en Burp</strong> — el recon de una tarde se convierte en una cacería de minutos. La explotación es tuya y humana; la herramienta entrega el mapa.</div></div>
+  </div>
+</section>
+
+<section id="precios">
+  <div class="wrap">
+    <h2>Inversión (licencia vitalicia)</h2>
+    <div class="grid">
+      <div class="price">
+        <h3>Starter</h3>
+        <div class="valor">R$ 497 <small>única</small></div>
+        <span class="mut" style="font-size:13px">para quien está empezando a operar de verdad</span>
+        <ul>
+          <li>Console completo (20 módulos)</li>
+          <li>Licencia vitalicia</li>
+          <li>6 meses de actualizaciones</li>
+          <li>Reportes TXT/HTML + evidencias por fecha</li>
+          <li>Guía de operación (PDF)</li>
+          <li>Soporte por WhatsApp</li>
+        </ul>
+        <a class="btn btn-c" href="https://pay.hotmart.com/SEU_CODIGO_STARTER" target="_blank" rel="noopener">Comprar Starter</a>
+      </div>
+      <div class="price destaque">
+        <h3>Pro <span class="tagbest">· MÁS ELEGIDA</span></h3>
+        <div class="valor">R$ 1.197 <small>única</small></div>
+        <span class="mut" style="font-size:13px">para el profesional que cobra por auditoría</span>
+        <ul>
+          <li>Todo el Starter</li>
+          <li>12 meses de actualizaciones</li>
+          <li>IA local integrada (Ollama) — cero tokens</li>
+          <li>Programación diaria + alerta Telegram</li>
+          <li>Plantillas LGPD: término de autorización + declaración de exclusión de datos</li>
+          <li>Onboarding 1:1 en vivo (45 min)</li>
+          <li>Soporte prioritario</li>
+        </ul>
+        <a class="btn btn-b" href="https://pay.hotmart.com/SEU_CODIGO_PRO" target="_blank" rel="noopener">Comprar Pro</a>
+      </div>
+    </div>
+    <p class="small" style="margin-top:16px">⚖️ Comparación honesta: un pentest externo contratado cuesta USD 1.500–5.000+ por engagement. La licencia Pro cuesta menos que un día de esa diaria — y sirve para todos tus clientes. Garantía de 7 días con devolución.</p>
+  </div>
+</section>
+
+<section id="compliance">
+  <div class="wrap">
+    <h2>Legalidad y compliance, en blanco y negro</h2>
+    <table>
+      <tr><th style="width:130px">Hace</th><td>Reconocimiento de objetivos <strong>autorizados</strong>: bug bounty publicado o término firmado. Hace rate limit de fábrica y módulo conservador (misconfig/exposure, alta/crítica).</td></tr>
+      <tr><th>No hace</th><td>No explota vulnerabilidades, no evita autenticación, no hace DoS, no envía mensajes, no opera fuera del alcance informado.</td></tr>
+      <tr><th>Bases</th><td>Hacking ético autorizado (equivalente al art. 154-A del Código Penal brasileño — Lei 12.737/2012) y protección de datos (LGPD Lei 13.709/2018 en Brasil; principios equivalentes en otros países).</td></tr>
+      <tr><th>Datos</th><td>Flujo estándar 100% local: ningún dato va a la nube ni a IA de terceros. El paquete incluye la <strong>Declaración de exclusión de datos (Data Destruction Certificate)</strong>.</td></tr>
+    </table>
+    <div class="aviso">⚠️ <strong>Transparencia:</strong> SOVEREIGN OPS no garantiza encontrar todas las fallas, no sustituye el análisis humano y no es una herramienta para hackear. Es la automatización del trabajo honesto de quien ya hace seguridad — con velocidad y compliance.</div>
+  </div>
+</section>
+
+<section id="autor">
+  <div class="wrap">
+    <h2>Sobre el autor</h2>
+    <div class="autor">
+      <div class="avatar">🦅</div>
+      <div>
+        <h3>Felipe "sovereign_tech"</h3>
+        <p class="mut">Investigador de seguridad (HackerOne) y desarrollador brasileño que construyó SOVEREIGN OPS dentro de pentests reales — homologación, alcance bloqueado, ventana controlada — y de la rutina diaria de bug bounty. Cada módulo existe porque un dolor manual se repetía demasiado.</p>
+        <p class="mut" style="margin-top:8px">📌 Misión: equipar al profesional de seguridad hispanohablante con la automatización que los atacantes ya tienen — del lado correcto de la línea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p id="contacto"></p>
+<section>
+  <div class="wrap">
+    <h2>Contacto directo (sin call center)</h2>
+    <div class="grid">
+      <div class="card"><strong>📱 WhatsApp (soporte &amp; ventas)</strong><p><a href="https://wa.me/5562982434116" target="_blank" rel="noopener">+55 62 98243-4116</a><br><span>Respuesta el mismo día útil.</span></p></div>
+      <div class="card"><strong>✉️ E-mail oficial</strong><p><a href="mailto:contact.sovereigntech@gmail.com">contact.sovereigntech@gmail.com</a></p></div>
+      <div class="card"><strong>🎓 Pedidos posibles</strong><p>Demo en vivo (20 min, en lab) · Licencias Starter/Pro · White-label para MSSP/equipos · Pentest puntual</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿SOVEREIGN OPS es legal?</summary><p>Sí. Ejecuta reconocimiento solo en objetivos autorizados (bug bounty publicado o término firmado). Exige confirmación de autorización para objetivo manual y no opera fuera del alcance.</p></details>
+    <details><summary>¿Es una herramienta para hackear?</summary><p>No. Es recon pentest: recopila y organiza información del alcance autorizado. La explotación sigue manual en Burp — la herramienta entrega el mapa, no el ataque.</p></details>
+    <details><summary>¿Soporta escaneos grandes?</summary><p>Sí: streaming a disco (memoria constante), rate limit por fase, ejecución incremental por fecha y diff diario contra la línea base. Proyectado para superficie grande en máquina modesta.</p></details>
+    <details><summary>¿Puedo usar si mi cliente prohíbe IA de terceros?</summary><p>Sí — el modo 🔒 confidencial bloquea la salida de datos y la IA es opcional y 100% local (Ollama).</p></details>
+    <details><summary>¿Cómo recibo la licencia? ¿Garantía?</summary><p>Pago vía Hotmart, liberación el mismo día por WhatsApp, garantía de 7 días con devolución integral.</p></details>
+    <details><summary>¿Sirve para equipos/MSSP?</summary><p>Sí — plan custom con licencias múltiples y reporte white-label. Habla con el autor.</p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><strong style="color:var(--txt)">SOVEREIGN OPS</strong><br><span class="small">Console de reconocimiento A-Z 100% local para pentest autorizado y bug bounty.</span></div>
+      <div><strong style="color:var(--txt)">Sitio</strong><br><a href="#modulos">Módulos</a> · <a href="#escala">Escala</a> · <a href="#precios">Precios</a> · <a href="#compliance">Compliance</a> · <a href="#faq">FAQ</a> · <a href="/licencia.html">Licencia</a></div>
+      <div><strong style="color:var(--txt)">Contacto</strong><br><a href="https://wa.me/5562982434116" target="_blank" rel="noopener">WhatsApp +55 62 98243-4116</a><br><a href="mailto:contact.sovereigntech@gmail.com">contact.sovereigntech@gmail.com</a></div>
+      <div><strong style="color:var(--txt)">Idiomas</strong><br><a href="/" hreflang="pt-BR">Português (BR)</a> · Español (primaria)</div>
+    </div>
+    <div class="small">© 2026 SOVEREIGN OPS · Todos los derechos reservados · Prohibida la reproducción, clonación y reventa (ver <a href="/licencia.html">licencia</a>). Uso exclusivo para pruebas autorizadas y fines defensivos.</div>
+  </div>
+</footer>
+
+</body>
+</html>

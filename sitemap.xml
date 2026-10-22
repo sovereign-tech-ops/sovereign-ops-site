@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://sovereignops.com/es/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sovereignops.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://sovereignops.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/"/>
+    <image:image>
+      <image:loc>https://sovereignops.com/og-cover.png</image:loc>
+      <image:title>SOVEREIGN OPS — Recon A-Z 100% local</image:title>
+      <image:caption>Console de reconocimiento para pentest autorizado: 20 módulos, triaje IDOR/SSRF/SQLi, cero nube.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://sovereignops.com/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es" href="https://sovereignops.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://sovereignops.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sovereignops.com/es/"/>
+  </url>
+</urlset>

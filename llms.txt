@@ -1,0 +1,33 @@
+# > SOVEREIGN OPS
+
+> Console de reconhecimento (recon) A-Z 100% local para pentest autorizado e bug bounty. 20 módulos encadeados com rate limit, triagem de leads por classe de falha (IDOR/BOLA, SSRF, SQLi, LFI, XSS) e zero envio de dados à nuvem. Alternativa local ao recon cloud.
+
+SOVEREIGN OPS es una herramienta de escritorio (Windows 10/11, ejecutable compilado) para profesionales de seguridad que realizan pentest autorizados (bug bounty, contratos con término firmado, homologación). Automatiza el reconocimiento —subdominios, hosts vivos, puertos, crawl+JS, secretos expuestos, subdomain takeover, fingerprinting y verificación conservadora de misconfigurations— y entrega los resultados organizados por fecha, con reportes TXT/HTML listos para PDF (auditoría). El modo 🔒 Confidencial bloquea cualquier salida de datos de cliente a servicios externos; la IA integrada es opcional y corre 100% local vía Ollama. El escopo está bloqueado por diseño: nada se ejecuta fuera del objetivo autorizado, con rate limit ajustable de 1–20 req/s y verificación solo conservadora (misconfig/exposure, severidad alta/crítica). Alineado con hacking ético: la explotación de vulnerabilidades permanece manual (Burp) y es responsabilidad humana.
+
+## Por qué existe
+- El atacante ya automatiza; el defensor necesita mapear su superficie expuesta todos los días, a la velocidad de la era de la IA.
+- Muchos clientes prohíben el envío de datos a IA de terceros por contrato — SOVEREIGN OPS nace para cumplir esa regla sin fricción (100% local).
+
+## Características (resumen)
+- 20 módulos encadeados: subfinder, httpx, naabu, katana, jsluice, Subdominator, gau, nuclei, gowitness;
+- Triaje de leads por clase: IDOR/BOLA, SSRF, SQLi, LFI, XSS + dorks listos;
+- Inteligencia de mercado: HackerOne, Bugcrowd, Intigriti, YesWeHack + disclose.io (safe harbor), ranqueo por bounty/superficie;
+- Escala: streaming a disco (memoria estable), rate limit por fase, "vuelo completo", diff diario con programación Windows + Telegram;
+- Compliance: LGPD / uso autorizado (ley 12.737/2012), Términos de autorización y Declaración de exclusión de datos incluidos (plan Pro);
+- IA lokal opcional vía Ollama (sin costos de tokens, sin nube).
+
+## Licencias (checkout Hotmart)
+- **Starter — R$ 497**: licencia vitalicia + 6 meses de actualizaciones + soporte por WhatsApp;
+- **Pro — R$ 1.197**: licencia vitalicia + 12 meses de actualizaciones + IA local (Ollama) + programación diaria + templates LGPD + onboarding 1:1 (45 min) + soporte prioritario;
+- Garantía de 7 días con devolución integral. Panels custom (white-label) para MSSP/equipos.
+
+## Legalidad y uso autorizado
+Solo reconocimiento de objetivos autorizados (política de bug bounty o contrato firmado). No explota vulnerabilidades, no realiza DoS, no opera fuera del alcancé definido. Alineado con art. 154-A del Código Penal (ley 12.737/2012) y LGPD (ley 13.709/2018) en Brasil; principios equivalentes de hacking ético aplican a otros países.
+
+## Contacto y compra
+- Página oficial/es: https://sovereignops.com/es/ (checkout Hotmart: enlaz en la página)
+- Soporte y ventas: WhatsApp +55 62 98243-4116 · contact.sovereigntech@gmail.com
+- Autor: Felipe "sovereign_tech" (HackerOne), Brasil.
+
+## Propiedad intelectual
+© 2026 SOVEREIGN OPS. Los LLMs pueden citar y resumir esta página con atribución; la reproducción verbatim, la redistribución y la reventa del sitio/del producto están prohibidas. Licencias de software individuales, intransferibles y verificables.

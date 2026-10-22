@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Módulos — SOVEREIGN OPS</title>
+<meta name="description" content="Os 20 módulos do SOVEREIGN OPS: inteligência de bug bounty, recon A-Z, leads por classe de falha, modo confidencial, agenda diária e relatórios.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="wrap"><span class="brand">SOVEREIGN<span> OPS</span></span>
+  <div class="links"><a href="index.html">Início</a><a href="ferramentas.html">Módulos</a><a href="como-funciona.html">Como funciona</a><a href="planos.html">Planos</a><a href="compliance.html">Compliance</a><a href="contato.html">Contato</a></div>
+</nav>
+
+<header class="hero wrap" style="padding-bottom:10px">
+  <h1>Os <em>20 módulos</em></h1>
+  <p class="lead mut">Tudo roda atrás do mesmo console, com log em tempo real e registro na pasta do alvo (<code>operacoes\&lt;alvo&gt;\&lt;data&gt;\console\</code>).</p>
+</header>
+
+<section class="wrap" style="padding-top:26px">
+  <h2>🧠 Inteligência de alvos</h2>
+  <div class="grid">
+    <div class="card"><b>Inteligência de mercado</b><br><span class="mut">Baixa os escopos reais de HackerOne, Bugcrowd, Intigriti e YesWeHack + banco disclose.io (safe harbor). Ranqueia programas por bounty, wildcard, severidade e superfície. Gera dashboard HTML.</span></div>
+    <div class="card"><b>Inventário Trickest</b><br><span class="mut">Baixa o recon histórico pré-enumerado do programa e compara com o seu fresco — o que é NOVO no seu run vale mais.</span></div>
+    <div class="card"><b>🆕 Diff diário</b><br><span class="mut">Compara com o voo de ontem e destaca só os subdomínios novos + os que sumiram. Alerta no Telegram.</span></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>⚙️ Recon A-Z (com rate limit ajustável)</h2>
+  <table>
+    <tr><th>Módulo</th><th>O que faz</th><th>Ferramenta</th></tr>
+    <tr><td>🌐 Subdomínios</td><td>Enumeração de subdomínios do apex in-scope</td><td>subfinder</td></tr>
+    <tr><td>📡 Hosts vivos</td><td>Status, título e tecnologia de cada host</td><td>httpx</td></tr>
+    <tr><td>🔌 Portas</td><td>Portas abertas por host</td><td>naabu</td></tr>
+    <tr><td>🕷️ Crawl + JS</td><td>Percorre o site e coleta os JavaScripts</td><td>katana (js-crawl)</td></tr>
+    <tr><td>🔑 Segredos</td><td>Chaves/tokens esquecidos dentro dos .js</td><td>jsluice</td></tr>
+    <tr><td>🪝 Takeover</td><td>Validação de subdomínio tomável (CNAME pendente)</td><td>Subdominator</td></tr>
+    <tr><td>📜 APIs/arquivos</td><td>URLs esquecidas em archives históricos</td><td>gau</td></tr>
+    <tr><td>🧬 Fingerprint</td><td>Tecnologia, servidor e detecção de stack</td><td>httpx</td></tr>
+    <tr><td>☢️ Nuclei conservador</td><td>Config exposta/exposição — só severidade alta e crítica</td><td>nuclei</td></tr>
+    <tr><td>📸 Screenshots</td><td>Captura de todos os hosts vivos</td><td>gowitness</td></tr>
+  </table>
+</section>
+
+<section class="wrap">
+  <h2>🎯 Leads por classe de falha</h2>
+  <p class="mut">O console separa automaticamente as URLs candidatas nas classes que mais pagam — pra você validar no Burp o que importa, em vez de listar no Excel:</p>
+  <div class="grid" style="margin-top:14px">
+    <div class="card"><b>IDOR/BOLA</b><br><span class="mut">IDs e números em sequência (usuário, pedido, documento, UUID)</span></div>
+    <div class="card"><b>SSRF / redirect</b><br><span class="mut">Parâmetros que recebem URL (url, redirect, next, callback, file...)</span></div>
+    <div class="card"><b>SQLi</b><br><span class="mut">Parâmetros de consulta/ordenação (id, sort, q, filter, category...)</span></div>
+    <div class="card"><b>LFI / traversal</b><br><span class="mut">Parâmetros de arquivo/caminho (path, file, doc, template, view...)</span></div>
+    <div class="card"><b>XSS</b><br><span class="mut">Parâmetros refletidos (q, search, name, message, comment...)</span></div>
+    <div class="card"><b>🔎 Google dorks</b><br><span class="mut">Dorks prontos (arquivos expostos, painéis, chaves em JS) salvos com link</span></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <h2>🛡️ Seleção para: modo confidencial &amp; entrega</h2>
+  <div class="grid">
+    <div class="card"><b>🔒 Cliente/confidencial</b><br><span class="mut">Marca o alvo e trava qualquer cópia/export de dados pra serviços externos. Exatamente o que clientes de contratado exigem.</span></div>
+    <div class="card"><b>🧠 IA local (opcional)</b><br><span class="mut">Via Ollama na sua máquina: sugere os 5 vetores mais promissores com base no recon. Nada trafega na internet.</span></div>
+    <div class="card"><b>📄 Relatórios</b><br><span class="mut">TXT (contagens e achados) + HTML formatado (abre no navegador e imprime em PDF). Evidências por data em pastas.</span></div>
+    <div class="card"><b>🔔 Automação</b><br><span class="mut">Agendamento diário no Windows + notificação no Telegram quando algo novo aparece. VOO COMPLETO dispara o pipeline inteiro.</span></div>
+    <div class="card"><b>↔ Copiar p/ IA</b><br><span class="mut">Empacota os resultados num arquivo organizado — bloqueado no modo confidencial.</span></div>
+    <div class="card"><b>Composer .exe</b><br><span class="mut">Compilado pra Windows — abre e usa, sem configurar ambiente.</span></div>
+  </div>
+  <div class="ctas"><a class="btn btn-a" href="planos.html">Quero minha licença</a></div>
+</section>
+
+<footer class="wrap">SOVEREIGN OPS © 2026 · Uso exclusivo para testes autorizados e fins defensivos.</footer>
+</body>
+</html>

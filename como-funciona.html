@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como funciona — SOVEREIGN OPS</title>
+<meta name="description" content="3 passos: escolha o alvo autorizado, aperte VOO COMPLETO e valide os leads no Burp. Escopo travado por design.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="wrap"><span class="brand">SOVEREIGN<span> OPS</span></span>
+  <div class="links"><a href="index.html">Início</a><a href="ferramentas.html">Módulos</a><a href="como-funciona.html">Como funciona</a><a href="planos.html">Planos</a><a href="compliance.html">Compliance</a><a href="contato.html">Contato</a></div>
+</nav>
+
+<header class="hero wrap" style="padding-bottom:12px">
+  <h1>Como funciona em <em>3 passos</em></h1>
+</header>
+
+<section class="wrap" style="padding-top:26px">
+  <div class="step"><div class="num">1</div><div><b>Escolha o alvo autorizado</b><br class="mut">Na lista de programas (ordenada por bounty + safe harbor + superfície) ou digitando o domínio do seu contrato — com confirmação de autorização obrigatória.<br><span class="small">Fora do alvo, a ferramenta não roda. Escopo travado por design, não por promessa.</span></div></div>
+  <div class="step"><div class="num">2</div><div><b>Aperte VOO COMPLETO</b> (ou só os módulos que você quer)<br><span class="small">Subdomínios → hosts vivos → crawl + JS → takeover → segredos → leads → Nuclei conservador. Rate limit ajustável 1–20 req/s. Log em tempo real.</span></div></div>
+  <div class="step"><div class="num">3</div><div><b>Abrir os leads e validar no Burp</b><br><span class="small">As URLs candidatas já vêm separadas por classe de falha. O recon de uma tarde vira uma caça de minutes. A exploração é sua, humana — a ferramenta te entrega o mapa até lá.</span></div></div>
+</section>
+
+<section class="wrap">
+  <h2>O fluxo completo de um dia</h2>
+  <p class="mut">Exemplo real de operação autônoma (a mesma roda que o autor utiliza):</p>
+  <table style="margin-top:14px">
+    <tr><th>Etapa</th><th>Ferramenta / módulo</th><th>Resultado</th></tr>
+    <tr><td>Manhã</td><td>Agendamento automático (schtasks)</td><td>Voo executado às 08:00 nos alvos que você monitora; Telegram avisa o que é novo</td></tr>
+    <tr><td>&nbsp;</td><td>Diff diário + Inventário</td><td>Lista do que surgiu desde ontem — foco quente</td></tr>
+    <tr><td>Tarde</td><td>Leads por classe + dorks</td><td>Pilha de candidatos organizados por IDOR / SSRF / SQLi / XSS / LFI</td></tr>
+    <tr><td>&nbsp;</td><td>Burp (manual)</td><td>1 request por lead: valida ou descarta. PoC mínimo.</td></tr>
+    <tr><td>Fim do dia</td><td>Relatório TXT/HTML</td><td>Evidências por data, pronto pra report ou pra anexo de contrato</td></tr>
+  </table>
+</section>
+
+<section class="wrap">
+  <h2>O que ele NÃO faz (e por isso ele vale mais)</h2>
+  <div class="grid">
+    <div class="card"><b>Não invade</b><br><span class="mut">Recon é coleta controlada. Exploração manual fica no Burp — decisão humana, responsabilidade humana.</span></div>
+    <div class="card"><b>Não envia nada pra nuvem</b><br><span class="mut">Zero telefone pras ferramentas de IA de terceiros. Modo confidencial trava cópia/export.</span></div>
+    <div class="card"><b>Não garante falha</b><br><span class="mut">Não existe isso. O que ele garante é o mapa completo de superfície — e é isso que encurta a caça.</span></div>
+    <div class="card"><b>Não roda fora do escopo</b><br><span class="mut">Alvo manual exige confirmação de programa/autorização. Rate limit vem de fábrica. Sem flood, sem DoS.</span></div>
+  </div>
+  <div class="ctas"><a class="btn btn-a" href="planos.html">Ver planos</a></div>
+</section>
+
+<footer class="wrap">SOVEREIGN OPS © 2026 · Uso exclusivo para testes autorizados e fins defensivos.</footer>
+</body>
+</html>
