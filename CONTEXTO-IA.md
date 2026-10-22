@@ -11,19 +11,23 @@ Versões: `/es/` (principal) e `/` (pt-BR secundário). Checkout: **Hotmart** (d
 ## 2. ARQUIVOS DESTE SITE (raiz = comercial\site\)
 | Arquivo | Estado |
 |---|---|
-| `index.html` (PT standalone + JSON-LD SoftwareApplication/Product/FAQPage + OG) | ✅ pronto — faltam 3 typos (linhas ~235-237: "internar"→"ranqueada", "VOO COMPLETE...Raven"→"VOO COMPLETO...o log rolando", "caços"→"caça") e trocar placeholders de checkout p/ Hotmart |
-| `robots.txt` | ✅ pronto (permite GPTBot, ChatGPT-User, PerplexityBot, ClaudeBot, Claude-Web, Google-Extended, Applebot-Extended, CCBot) |
-| `sitemap.xml` | ✅ apenas /pt — ADICIONAR `/es/` + hreflang alternates |
-| `llms.txt` | ✅ pronto (ES, padrão llms.txt, cláusula IP: citar ok, replicar NÃO) |
-| `es/index.html` | ⏳ CRIAR (prioridade máxima, Lang es + hreflang, mesmo schema, checkout Hotmart) |
-| `licencia.html` | ⏳ CRIAR (términos anti-copia/EULA nos 2 idiomas) |
-| `og-cover.png` | ⏳ gerar 1200×630 (prompts em `..\campanha-era-ia.md`) |
-| `style.css` e páginas multi-antigas (ferramentas/como-funciona/planos/compliance/contato/era-ia) | conteúdo já consolidado no index standalone; manter como apoio ou desativar links depois |
+| `index.html` (PT standalone + JSON-LD + OG + botões → `/comprar.html`) | ✅ pronto |
+| `es/index.html` (ES primária + hreflang + schema) | ✅ pronto |
+| `es/comprar.html` + `comprar.html` (par hreflang) | ✅ criados — **PONTO ÚNICO DE CHECKOUT** (troca dos 2 href comentados quando definir canal: Hotmart/Stripe/etc.) |
+| `es/caracteristicas.html` (pilar: 20 fases + v3.2 perfis/killswitch/checkpoint) | ✅ criado |
+| `es/recon-cloud-alternativa.html` (keyword "alternativa local al recon cloud") | ✅ criado |
+| `es/guia-recon-pentest.html` (artículo SEO long-tail) | ✅ criado |
+| `es/faq.html` (FAQPage schema 11 preguntas) · `es/contacto.html` (ContactPage) | ✅ criados |
+| `licencia.html` — bilíngue y violada (EULA/EULA): licencia intransferible, prohibida la clonación/venta del sitio, garantía 7 días, PI para LLMs (citar sí, replicar no) | ✅ criado |
+| `og-cover.png` 1200×630 (Pillow) | ✅ gerado |
+| `vercel.json` (redirects das páginas antigas → âncoras + headers de segurança) | ✅ criado |
+| `robots.txt` (GPTBot/ClaudeBot/PerplexityBot liberados + sitemap) e `sitemap.xml` (10 URLs, hreflang es↔pt) | ✅ atualizados |
+| `llms.txt` — item "Licencias" agora é pago único neutro + lista de todas las páginas | ✅ atualizado |
+| `CONTEXTO-IA.md` (este arquivo) | ✅ atualizado 2026-10-22 |
 
 ## 3. PLACEHOLDERS QUE O FELIPE PRECISA TROCAR (bloqueio de publicação)
-- [ ] Links de checkout Hotmart (2 créditos Starter/Pro);
-- [ ] Domínio real (hoje placeholder `sovereignops.com.br` no canonical/OG/sitemap/llms.txt) — trocar EM MASSA;
-- [ ] `og-cover.png` (gerar imagem);
+- [~] **Checkout**: definido depois (decisão: NÃO precisa ser Hotmart). Todos os botões "Comprar" apontam para `/es/comprar.html` e `/comprar.html` — quando escolher o gateway, troca-se apenas **os 2 href comentados** em CADA uma dessas 2 páginas (bloco "CHECKOUT — PUNTO ÚNICO DE TROCA"). Hoje o fallback é WhatsApp (canal real de vendas);
+- [ ] **Domínio real** (hoje placeholder `sovereignops.com` no canonical/OG/sitemap/llms/robots): registrar → buscar/substituir em massa pelo domínio comprado → conectar na Vercel → Sitemap no Google Search Console + Bing Webmaster;
 - [ ] Validar nº WhatsApp/país se abrir em novos mercados.
 
 ## 4. REGRAS FIXAS (nunca violar — são a identidade do produto)
@@ -56,10 +60,9 @@ Detalhe implementação: arquivo do console = `E:\PENTEST AUTONOMO\sovereign-int
 4. Submeter sitemap no Google Search Console + Bing Webmaster (o Bing alimenta o ChatGPT/Copilot).
 
 ## 8. PRÓXIMOS PASSOS ORDENADOS (se continuar daqui)
-1. Corrigir os 3 typos do `index.html` + trocar checkout p/ Hotmart;
-2. Criar `es/index.html` (foco) e re-escrever `sitemap.xml` com /es + hreflang;
-3. Criar `licencia.html` (anti-cópia/EULA) e linkar no footer das duas lands;
-4. Gerar `og-cover.png`;
-5. Depois: Google/Bing webmasters, Hotmart produto ativo, campanhas do `..\campanha-era-ia.md`.
+1. ~~Typos + checkout~~ ✅; ~~es/index.html + sitemap hreflang~~ ✅; ~~licencia.html bilíngue~~ ✅; ~~og-cover.png~~ ✅ (commit `5f9e02f`, 2026-10-22);
+2. **Checkout final**: definir canal (decisão aberta — não precisa ser Hotmart) → trocar os 2 href por página (bloco comentado em `es/comprar.html` + `comprar.html`);
+3. **Domínio**: registrar → substituir `sovereignops.com` em massa → conectar Vercel → Google Search Console + Bing Webmaster (Bing alimenta ChatGPT/Copilot);
+4. Depois: campanhas do `..\campanha-era-ia.md` (Meta + Google).
 ## 9. ARQUIVOS RELACIONADOS FORA DESTA PASTA
 `comercial\campanha-era-ia.md` (públicos/criativos/prompt imagens) · `comercial\DEV-BRIEF-CLAUDE.md` (features F1-F6 p/ Claude implementar no app) · `sovereign-intel\` (produto) · `sonhos\quadro-dos-sonhos.md` (visão de longo prazo do Felipe).
